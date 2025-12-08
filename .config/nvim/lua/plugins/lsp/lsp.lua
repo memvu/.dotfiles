@@ -49,6 +49,8 @@ return {
             'jdtls',
             'clangd',
             'omnisharp',
+            -- 'cmake',
+            -- 'neocmakelsp',
           },
           automatic_enable = {
             exclude = {
@@ -226,7 +228,7 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        pyright = {},
+        -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -236,8 +238,7 @@ return {
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         -- jdtls = {},
-        --
-
+        neocmakelsp = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -286,18 +287,19 @@ return {
         'eslint_d',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-      -- require('mason-lspconfig').setup {
-      --   -- handlers = {
-      --   --   function(server_name)
-      --   --     local server = servers[server_name] or {}
-      --   --     -- This handles overriding only values explicitly passed
-      --   --     -- by the server configuration above. Useful when disabling
-      --   --     -- certain features of an LSP (for example, turning off formatting for ts_ls)
-      --   --     server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-      --   --     require('lspconfig')[server_name].setup(server)
-      --   --   end,
-      --   -- },
-      -- }
+      require('mason-lspconfig').setup {
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            -- This handles overriding only values explicitly passed
+            -- by the server configuration above. Useful when disabling
+            -- certain features of an LSP (for example, turning off formatting for ts_ls)
+            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            require('lspconfig')[server_name].setup(server)
+            -- vim.lsp.config[server_name];
+          end,
+        },
+      }
     end,
   },
 }
