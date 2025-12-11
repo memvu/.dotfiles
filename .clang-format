@@ -1,1 +1,3 @@
 ColumnLimit: 120
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
