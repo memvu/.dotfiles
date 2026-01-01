@@ -12,6 +12,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Stop vim-sleuth from messing with c/cpp formatting
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'c', 'cpp' },
+  callback = function()
+    vim.b.sleuth_automatic = 0 -- stop sleuth from adjusting indent
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 3
+    vim.bo.tabstop = 3
+    vim.bo.softtabstop = 3
+  end,
+})
+
 -- Auto retab whenever textchanged
 -- vim.api.nvim_create_autocmd('TextChanged', {
 --   pattern = '*',

@@ -60,11 +60,6 @@ vim.opt.cursorline = false
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 15
 
-vim.opt.expandtab = true
-vim.opt.tabstop = 3
-vim.opt.softtabstop = 3
-vim.opt.shiftwidth = 3
-
 -- vim.o.showtabline = 2
 -- show path if tabline is enabled
 vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
@@ -82,3 +77,8 @@ vim.opt.lbr = true
 -- it helps
 vim.opt.wrap = true
 vim.opt.textwidth = 100
+
+vim.opt.expandtab = true
+vim.opt.tabstop = 3
+vim.opt.softtabstop = 3
+vim.opt.shiftwidth = 3
