@@ -2,4 +2,4 @@ ColumnLimit: 120
 BreakConstructorInitializers: BeforeComma
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 IndentWidth: 3
-UseTabs: Never
+UseTab: Never
