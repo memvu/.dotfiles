@@ -3,3 +3,6 @@ BreakConstructorInitializers: BeforeComma
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 IndentWidth: 3
 UseTab: Never
+EmptyLineBeforeAccessModifier: Always
+AccessModifierOffset: -3
+BreakTemplateDeclarations: Yes
