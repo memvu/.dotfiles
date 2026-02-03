@@ -12,12 +12,14 @@ config.initial_cols = 95
 config.initial_rows = 28
 
 -- or, changing the font size and color scheme.
-config.font_size = 23.5
+config.font_size = 25.0
 config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
 
 config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
+-- config.default_cursor_style = "BlinkingBlock"
+-- config.cursor_blink_rate = 800
 config.colors = {
 	cursor_bg = "fa5482",
 }

@@ -1,8 +1,14 @@
-ColumnLimit: 120
+ColumnLimit: 110
 BreakConstructorInitializers: BeforeComma
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
+AlignAfterOpenBracket: true
 IndentWidth: 3
 UseTab: Never
 EmptyLineBeforeAccessModifier: Always
 AccessModifierOffset: -3
 BreakTemplateDeclarations: Yes
+BinPackParameters: false
+SeparateDefinitionBlocks: Always
+AllowShortFunctionsOnASingleLine: None
+# AllowShortBlocksOnASingleLine: Never
+# AllowShortIfStatementsOnASingleLine: AllIfsAndElse
