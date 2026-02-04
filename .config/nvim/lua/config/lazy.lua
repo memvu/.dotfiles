@@ -9,7 +9,7 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  { 'tpope/vim-sleuth', enabled = false }, -- Detect tabstop and shiftwidth automatically
   { import = 'plugins' },
   { import = 'plugins.lsp' },
 

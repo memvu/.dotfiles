@@ -49,6 +49,7 @@ return {
             'jdtls',
             'clangd',
             'omnisharp',
+            'texlab',
             -- 'cmake',
             -- 'neocmakelsp',
           },
@@ -259,6 +260,27 @@ return {
               -- },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               diagnostics = { disable = { 'missing-fields' } },
+            },
+          },
+        },
+        texlab = {
+          settings = {
+            texlab = {
+              build = {
+                executable = 'latexmk',
+                args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+                onSave = true, -- or false if you only want manual builds
+              },
+              chktex = {
+                onEdit = true,
+                onOpenAndSave = true,
+              },
+              diagnosticsDelay = 300,
+              latexFormatter = 'latexindent',
+              forwardSearch = {
+                executable = 'skim', -- your PDF viewer helper
+                args = { '--display-line', '%l', '%p', '%f' }, -- viewer args
+              },
             },
           },
         },

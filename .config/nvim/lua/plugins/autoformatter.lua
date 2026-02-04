@@ -6,7 +6,12 @@ return { -- Autoformat
     {
       '<leader>f',
       function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
+        local conform = require 'conform'
+        conform.format { async = true, lsp_format = 'fallback' }
+
+        -- if vim.bo.filetype == 'tex' then
+        --   vim.cmd 'silent! retab'
+        -- end
       end,
       mode = '',
       desc = '[F]ormat buffer',
@@ -27,13 +32,14 @@ return { -- Autoformat
       end
       return {
         timeout_ms = 500,
-        lsp_format = 'never',
+        lsp_format = lsp_format_opt,
       }
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
       cpp = { 'clang_format' },
       c = { 'clang_format' },
+      tex = { 'latexindent' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
