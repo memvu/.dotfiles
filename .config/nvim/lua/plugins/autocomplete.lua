@@ -35,7 +35,7 @@ return { -- Autocompletion
     require('luasnip.loaders.from_vscode').lazy_load()
 
     luasnip.config.setup {}
-
+    -- local compare = cmp.config.compare
     cmp.setup {
       window = {
         completion = cmp.config.window.bordered(), -- border for the completion menu
@@ -59,6 +59,7 @@ return { -- Autocompletion
         ['<C-p>'] = cmp.mapping.select_prev_item(),
 
         -- Scroll the documentation window [b]ack / [f]orward
+        -- ts currently broken
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
@@ -101,6 +102,7 @@ return { -- Autocompletion
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
+        -- { name = 'jupynium', priority = 1000 },
         { name = 'html-css' },
         {
           name = 'lazydev',
@@ -112,6 +114,15 @@ return { -- Autocompletion
         { name = 'buffer' },
         { name = 'path' },
       },
+      -- sorting = {
+      --   priority_weight = 1.0,
+      --   comparators = {
+      --     compare.score, -- Jupyter kernel completion shows prior to LSP
+      --     compare.recently_used,
+      --     compare.locality,
+      --     -- ...
+      --   },
+      -- },
     }
   end,
 }

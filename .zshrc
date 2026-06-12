@@ -33,6 +33,7 @@ bindkey -s '^[t' "tmux-sessionizer\n"
 alias gbr='gradle build & gradle run'
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 
 . "$HOME/.local/bin/env"
 

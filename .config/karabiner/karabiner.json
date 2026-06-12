@@ -5,6 +5,22 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "left_command+f5 to change to qwerty",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f5",
+                                    "modifiers": {
+                                        "mandatory": ["right_shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'default'" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change spacebar to left_shift. (Post spacebar if pressed alone)",
                         "manipulators": [
                             {
@@ -80,6 +96,12 @@
             },
             "devices": [
                 {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "key_code": "vk_none" }]
+                        }
+                    ],
                     "identifiers": { "is_keyboard": true },
                     "simple_modifications": [
                         {
@@ -217,10 +239,92 @@
                     },
                     "ignore": false,
                     "ignore_vendor_events": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 8210,
+                        "vendor_id": 9610
+                    },
+                    "ignore": false,
+                    "mouse_flip_vertical_wheel": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 45114,
+                        "vendor_id": 1133
+                    },
+                    "ignore": false,
+                    "mouse_flip_vertical_wheel": true
                 }
             ],
-            "name": "Default profile",
+            "fn_function_keys": [
+                {
+                    "from": { "key_code": "f5" },
+                    "to": [{ "key_code": "vk_none" }]
+                }
+            ],
+            "name": "colemak",
             "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        },
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "rshift+f5 to change to colemak",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "f5",
+                                    "modifiers": {
+                                        "mandatory": ["left_command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'colemak'" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "key_code": "vk_none" }]
+                        }
+                    ],
+                    "identifiers": { "is_keyboard": true }
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 8210,
+                        "vendor_id": 9610
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 8210,
+                        "vendor_id": 9610
+                    },
+                    "ignore": false,
+                    "mouse_flip_vertical_wheel": true
+                }
+            ],
+            "fn_function_keys": [
+                {
+                    "from": { "key_code": "f5" },
+                    "to": [{ "key_code": "vk_none" }]
+                }
+            ],
+            "name": "default",
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]

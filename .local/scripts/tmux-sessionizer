@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    dir_to_fzf=$(find ~/College/ ~/Personal_Projects/ ~/Personal_Projects/mimi/ ~/Personal_Projects/Odin_Project/ ~/Personal_Projects/game/ ~/Personal_Projects/game/test/ ~/ -mindepth 1 -maxdepth 1 -type d)
+    dir_to_fzf=$(find ~/College/ ~/projects/ ~/internship/ ~/internship/fpt/ ~/projects/mimi/ ~/projects/Odin_Project/ ~/projects/game/ ~/projects/game/test/ ~/ -mindepth 1 -maxdepth 1 -type d)
     selected=$(echo "$dir_to_fzf" | fzf)
 fi
 

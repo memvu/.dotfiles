@@ -50,6 +50,7 @@ return {
             'clangd',
             'omnisharp',
             'texlab',
+            'tinymist',
             -- 'cmake',
             -- 'neocmakelsp',
           },
@@ -61,11 +62,15 @@ return {
           automatic_installation = true,
         },
       },
-      { 'WhoIsSethDaniel/mason-tool-installer.nvim', opts = {
-        ensure_installed = {
-          'markdownlint',
+      {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        opts = {
+          ensure_installed = {
+            'markdownlint',
+            'typstyle', -- for typst
+          },
         },
-      } },
+      },
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`

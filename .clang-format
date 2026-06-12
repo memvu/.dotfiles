@@ -12,3 +12,4 @@ SeparateDefinitionBlocks: Always
 AllowShortFunctionsOnASingleLine: None
 # AllowShortBlocksOnASingleLine: Never
 # AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+SortIncludes: false
