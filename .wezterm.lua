@@ -23,7 +23,12 @@ config.window_decorations = "RESIZE"
 -- config.cursor_blink_rate = 800
 config.colors = {
 	cursor_bg = "fa5482",
+	foreground = "#b3b3b3",
 }
+
+config.color_scheme = "Rasi (terminal.sexy)"
+-- config.color_scheme = "Royal (Gogh)"
+-- config.color_scheme = "Molokai"
 
 config.window_padding = {
 	bottom = 0,

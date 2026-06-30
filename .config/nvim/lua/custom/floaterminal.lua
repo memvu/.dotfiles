@@ -14,7 +14,7 @@ local function create_floating_window(opts)
 
   -- Calculate the position to center the window
   local col = math.floor((vim.o.columns - width) / 2)
-  local row = math.floor((vim.o.lines - height) / 2)
+  local row = math.floor((vim.o.lines - height) / 2) * 0.6
 
   -- Create a buffer
   local buf = nil
