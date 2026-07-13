@@ -47,9 +47,9 @@ export PATH="/Users/hvu/.local/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-if [[ -r "$HOME/.env" ]]; then
+if [[ -r "$HOME/.dotfiles/.env" ]]; then
  set -a
- source "$HOME/.env"
+ source "$HOME/.dotfiles/.env"
  set +a
 fi
 

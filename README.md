@@ -21,6 +21,9 @@ cd ~/.dotfiles/
 ./setup.sh
 ```
 
+## if wanna use firecrawl, it needs api key, the current setup store key in .env, which is not
+tracked by git. if create .env, remember to chmod 600 .env.
+
 
 
 
