@@ -37,10 +37,22 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 . "$HOME/.local/bin/env"
 
+# Added by Antigravity CLI installer
+export PATH="/Users/hvu/.local/bin:$PATH"
+
+# bun completions
+[ -s "/Users/hvu/.bun/_bun" ] && source "/Users/hvu/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+if [[ -r "$HOME/.env" ]]; then
+ set -a
+ source "$HOME/.env"
+ set +a
+fi
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-
-# Added by Antigravity CLI installer
-export PATH="/Users/hvu/.local/bin:$PATH"
