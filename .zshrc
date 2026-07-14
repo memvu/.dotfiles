@@ -53,6 +53,9 @@ if [[ -r "$HOME/.dotfiles/.env" ]]; then
  set +a
 fi
 
+# autocompletion for oh my pi
+eval "$(omp completions zsh)"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
