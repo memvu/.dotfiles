@@ -4,6 +4,7 @@ These are common instructions for my agents across all scenarios.
 
 ## General Guidelines
 
+- Always prefix shell commands with `rtk`.
 - Never use em dash '—', use plain dash instead '-'
 - Avoid using dash in general if other punctuations are enough
 - Never commit without my say so.
@@ -28,4 +29,3 @@ When you are talking/posting/writing on behalf of me using my identity, read ~/V
 
 When a connected MCP server provides the capability needed for a task, use it as the primary interface. Fall back to a CLI or script only when the MCP capability is unavailable, not callable, or explicitly requested.
 
-When available, always prefix shell commands with `rtk`.
