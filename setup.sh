@@ -19,5 +19,8 @@ cd ~/.dotfiles && brew bundle
 echo "Stowing..."
 stow .
 
+# configure global gitignore
+git config --global core.excludesfile ~/.gitignore_global
+
 echo "You're all set..."
 echo "Well...except for system settings :>>>>"
