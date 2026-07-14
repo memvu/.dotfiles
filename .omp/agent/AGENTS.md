@@ -4,7 +4,6 @@ These are common instructions for my agents across all scenarios.
 
 ## General Guidelines
 
-- Always prefix shell commands with `rtk`.
 - Never use em dash '—', use plain dash instead '-'
 - Avoid using dash in general if other punctuations are enough
 - Never commit without my say so.
@@ -27,5 +26,13 @@ When you are talking/posting/writing on behalf of me using my identity, read ~/V
 
 ## Tool Routing
 
-When a connected MCP server provides the capability needed for a task, use it as the primary interface. Fall back to a CLI or script only when the MCP capability is unavailable, not callable, or explicitly requested.
+- When a connected MCP server provides the capability needed for a task, use it as the primary interface. Fall back to a CLI or script only when the MCP capability is unavailable, not callable, or explicitly requested.
 
+Prefer native tools over shell commands:
+- Use `glob` for file discovery.
+- Use `read` for file and directory inspection.
+- Use `grep` for content search.
+- Use `lsp` for symbols, references, definitions, and diagnostics.
+- Use `ast_grep` when syntax structure matters.
+- Do not use shell `find`, `grep`, `rg`, or `sed` when a native tool can perform the task.
+- When shell execution is necessary, prefix the command with `rtk`.
