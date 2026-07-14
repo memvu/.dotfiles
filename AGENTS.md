@@ -28,5 +28,4 @@ When you are talking/posting/writing on behalf of me using my identity, read ~/V
 
 When a connected MCP server provides the capability needed for a task, use it as the primary interface. Fall back to a CLI or script only when the MCP capability is unavailable, not callable, or explicitly requested.
 
-Use `rtk` for shell commands when available; use raw commands only for debugging. Refer to ./RTK.md
-for rtk usage.
+When available, always prefix shell commands with `rtk`.
