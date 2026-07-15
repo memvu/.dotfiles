@@ -2,3 +2,5 @@
 .ua/
 graphify-out/
 graphify-vault/
+.agents/
+__pycache__/
