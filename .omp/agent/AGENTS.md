@@ -4,6 +4,8 @@ These are common instructions for my agents across all scenarios.
 
 ## General Guidelines
 
+- When a native tool (e.g. Read, Glob,...) exists, opt for it instead of shell tool.
+- When shell execution is necessary, MUST prefix the command with `rtk`.
 - Never use em dash '—', use plain dash instead '-'
 - Avoid using dash in general if other punctuations are enough
 - Never commit without my say so.
@@ -19,20 +21,19 @@ If something clearly looks off, even if it is not directly related to what you a
 If you see one, even if it is not caused by what you are working on right now, still get it fixed.
 
 My Opinions
-When you are working on something that would benefit from being informed by my viewpoints, read ~/OPINIONS.md to unders what I beloieve or ask me directly.
+- When you are working on something that would benefit from being informed by my viewpoints, read ~/OPINIONS.md to unders what I beloieve or ask me directly.
 
 Voice Profile
-When you are talking/posting/writing on behalf of me using my identity, read ~/VOICE.md to see how I talk.
+- When you are talking/posting/writing on behalf of me using my identity, read ~/VOICE.md to see how I talk.
 
 ## Tool Routing
 
 - When a connected MCP server provides the capability needed for a task, use it as the primary interface. Fall back to a CLI or script only when the MCP capability is unavailable, not callable, or explicitly requested.
 
-Prefer native tools over shell commands:
+## Mandatory Tool Routing
+
 - Use `glob` for file discovery.
-- Use `read` for file and directory inspection.
+- Use `read` for file contents and line ranges.
 - Use `grep` for content search.
-- Use `lsp` for symbols, references, definitions, and diagnostics.
+- Use `lsp` for symbols, definitions, references, and diagnostics.
 - Use `ast_grep` when syntax structure matters.
-- Do not use shell `find`, `grep`, `rg`, or `sed` when a native tool can perform the task.
-- When shell execution is necessary, prefix the command with `rtk`.

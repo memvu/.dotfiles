@@ -14,7 +14,16 @@ config.initial_rows = 28
 -- or, changing the font size and color scheme.
 config.font_size = 30.0
 -- config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
-config.font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" })
+config.font = wezterm.font_with_fallback({
+	{ family = "UbuntuMono Nerd Font", weight = "Bold" },
+	{ family = "JetBrainsMono Nerd Font", weight = "Bold" },
+	"PingFang SC",
+	"Hiragino Sans GB",
+	"Apple SD Gothic Neo",
+	"Thonburi",
+	"Arial Hebrew",
+	"Apple Symbols",
+})
 
 config.enable_tab_bar = false
 
