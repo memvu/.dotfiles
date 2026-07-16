@@ -1,0 +1,1 @@
+- I prefer pure functions that do not have side effect.
