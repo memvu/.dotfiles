@@ -4,6 +4,9 @@ These are common instructions for my agents across all scenarios.
 
 ## General Guidelines
 
+<!-- BEGIN @agent-native/skills -->
+- When using a high-cost frontier model (Fable/GPT5.6-Sol) for codebase-heavy work, use the /efficient-frontier skill always.
+<!-- END @agent-native/skills -->
 - When a native tool (e.g. Read, Glob,...) exists, opt for it instead of shell tool.
 - When shell execution is necessary, MUST prefix the command with `rtk`.
 - Never use em dash '—', use plain dash instead '-'
@@ -20,15 +23,11 @@ If something clearly looks off, even if it is not directly related to what you a
 - Apply that same high standard to engineering excellence: lint, test failures, and test flakiness.
 If you see one, even if it is not caused by what you are working on right now, still get it fixed.
 
-My Opinions
+## My Opinions
 - When you are working on something that would benefit from being informed by my viewpoints, read ~/OPINIONS.md to unders what I beloieve or ask me directly.
 
-Voice Profile
+## Voice Profile
 - When you are talking/posting/writing on behalf of me using my identity, read ~/VOICE.md to see how I talk.
-
-## Tool Routing
-
-- When a connected MCP server provides the capability needed for a task, use it as the primary interface. Fall back to a CLI or script only when the MCP capability is unavailable, not callable, or explicitly requested.
 
 ## Mandatory Tool Routing
 
