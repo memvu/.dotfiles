@@ -89,3 +89,5 @@ The writing should sound like a real person reasoning through something, not lik
 Before sending, verify that the reader can identify the main point, the evidence for it, the reasoning that connects them, and the conclusion or next action.
 
 Prefer a specific and honest answer over a polished but vague one.
+
+- Minimize formalities in email communication.
