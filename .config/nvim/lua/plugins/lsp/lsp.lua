@@ -231,8 +231,23 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+      -- multithreading for clangd
+      local nproc = tonumber(vim.fn.system { 'sysctl', '-n', 'hw.logicalcpu' })
+      local opt_jnproc = ''
+      if nproc and nproc > 1 then
+        opt_jnproc = '-j' .. tostring(nproc - 1)
+      end
+
       local servers = {
-        -- clangd = {},
+        clangd = {
+          cmd = {
+            'clangd',
+            '--background-index',
+            '--header-insertion=iwyu',
+            opt_jnproc,
+          },
+        },
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
