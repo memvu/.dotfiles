@@ -1,4 +1,4 @@
-export PATH="$HOME/.local/scripts:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.local/scripts:$PATH"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,42 +6,50 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=0
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 alias ls="eza -a --icons --git --group-directories-first"
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -r /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
-eval "$(zoxide init zsh)"
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
 
-source /opt/homebrew/opt/fzf/shell/completion.zsh
+if (( $+commands[fzf] )); then
+  if (( $+commands[fzf] )); then
+    source <(fzf --zsh)
+  fi
+  [[ -r ~/.fzf.zsh ]] && source ~/.fzf.zsh
+fi
 
-source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias cd='z'
+# alias for zoxide
+if (( $+commands[z] )); then
+  alias cd='z'
+fi
 
 # keybind for tmux-sessionizer script
 bindkey -s '^[t' "tmux-sessionizer\n"
 
-alias gbr='gradle build & gradle run'
+if [[ -d /usr/lib/jvm/default-java/bin ]]; then
+  export PATH="/usr/lib/jvm/default-java/bin:$PATH"
+fi
 
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-
-. "$HOME/.local/bin/env"
+[[ -r "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
 
 # Added by Antigravity CLI installer
-export PATH="/Users/hvu/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # bun completions
-[ -s "/Users/hvu/.bun/_bun" ] && source "/Users/hvu/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -54,8 +62,8 @@ if [[ -r "$HOME/.dotfiles/.env" ]]; then
 fi
 
 # autocompletion for oh my pi
-eval "$(omp completions zsh)"
+if (( $+commands[omp] )); then
+  eval "$(omp completions zsh)"
+fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+[[ -r "$HOME/powerlevel10k/powerlevel10k.zsh-theme" ]] && source "$HOME/powerlevel10k/powerlevel10k.zsh-theme"
